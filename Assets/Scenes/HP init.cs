@@ -2,50 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.ComponentModel.Design.Serialization;
 
-// public class HPinit : MonoBehaviour, IGetInfo
-// {
-//     [SerializeField] private int healthPoints;
-//     private int damage;
-//     [SerializeField] private bool damageState = false;
-//     public int HealthPoint => healthPoints;
-//     public bool DamageState => damageState;
-//     public int DamageSet => damage;
-
-//     public void DamageInit()
-//     {
-//         if (!damageState)
-//         {
-//             UpdHealth(damage);
-//         }
-//     }
-//     private void UpdHealth(int damage)
-//     {
-//         StartCoroutine(InvicibleFrames());
-//         healthPoints = healthPoints - damage;
-
-//     }
-
-//     IEnumerator InvicibleFrames()
-//     {
-//         damageState = true;
-//         yield return new WaitForSeconds(2);
-//         damageState = false;
-//     }
-
-// }
-// public interface IGetInfo
-// {
-//     int HealthPoint { get; }
-//     bool DamageState { get; }
-//     int DamageSet { set; }
-//     }
 
 public class HPinit : MonoBehaviour
 {
-    [SerializeField] private int hp;
-    [SerializeField] private int damage;
-    [SerializeField] private bool dmgState;
+    [SerializeField] private int hp = 3;
+    [SerializeField] private int damage = 0;
+    [SerializeField] private bool dmgState = false;
     public int HealthPoint
     {
         get => hp;
@@ -60,9 +24,26 @@ public class HPinit : MonoBehaviour
     {
         get => damage;
         set => damage = value;
-    } 
-    
-    
+    }
+    void Update()
+    {
+        DamageInit();
+    }
+    void DamageInit()
+    {
+        if (!dmgState && damage != 0)
+        {
+            hp = hp - damage;
+            StartCoroutine(InvicibleFrames());
+        }
+    }
+
+        IEnumerator InvicibleFrames()
+    {
+        dmgState = true;
+        yield return new WaitForSeconds(2);
+        dmgState = false;
+    }
 }
 public interface IHPInfo
 {
