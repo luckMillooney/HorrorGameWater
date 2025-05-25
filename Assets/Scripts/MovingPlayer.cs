@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MovingSphere : MonoBehaviour {
+public class MovingPlayer : MonoBehaviour {
 
 	[SerializeField]
 	Transform playerInputSpace = default;
@@ -51,6 +51,11 @@ public class MovingSphere : MonoBehaviour {
 	[SerializeField]
 	LayerMask probeMask = -1, stairsMask = -1, climbMask = -1, waterMask = 0;
 
+	KeyCode sprintKey = KeyCode.LeftShift;
+
+	[SerializeField, Range(0f, 10f)]
+	float sprintMultiplier = 1.5f;
+
 	[SerializeField]
 	Material
 		normalMaterial = default,
@@ -92,6 +97,8 @@ public class MovingSphere : MonoBehaviour {
 	int stepsSinceLastGrounded, stepsSinceLastJump;
 
 	MeshRenderer meshRenderer;
+
+	float sprint;
 
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
@@ -298,25 +305,39 @@ public class MovingSphere : MonoBehaviour {
 	void AdjustVelocity () {
 		float acceleration, speed;
 		Vector3 xAxis, zAxis;
-		if (Climbing) {
+
+		if(OnGround && Input.GetKey(sprintKey))
+        {
+			sprint = sprintMultiplier;
+        } else if (OnGround)
+        {
+			sprint = 1f;
+		}
+		
+
+		if (Climbing)
+		{
 			acceleration = maxClimbAcceleration;
 			speed = maxClimbSpeed;
 			xAxis = Vector3.Cross(contactNormal, upAxis);
 			zAxis = upAxis;
 		}
-		else if (InWater) {
+		else if (InWater)
+		{
 			float swimFactor = Mathf.Min(1f, submergence / swimThreshold);
-			acceleration = Mathf.LerpUnclamped(
-				OnGround ? maxAcceleration : maxAirAcceleration,
-				maxSwimAcceleration, swimFactor
-			);
-			speed = Mathf.LerpUnclamped(maxSpeed, maxSwimSpeed, swimFactor);
+            acceleration = Mathf.LerpUnclamped(
+                OnGround ? maxAcceleration : maxAirAcceleration,
+                maxSwimAcceleration, swimFactor
+            );
+
+            speed = Mathf.LerpUnclamped(maxSpeed, maxSwimSpeed, swimFactor);
 			xAxis = rightAxis;
 			zAxis = forwardAxis;
 		}
-		else {
-			acceleration = OnGround ? maxAcceleration : maxAirAcceleration;
-			speed = OnGround && desiresClimbing ? maxClimbSpeed : maxSpeed;
+		else
+		{
+			acceleration = 999f; // Моментальный отклик
+			speed = (OnGround && desiresClimbing ? maxClimbSpeed : maxSpeed) * sprint;
 			xAxis = rightAxis;
 			zAxis = forwardAxis;
 		}
