@@ -9,16 +9,13 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     //[SerializeField] public int timeInSeconds;
     private int timeSeconds;
-    public TMP_Text timerText;
+     
     private bool timerInit;
     private float secondsMeter;
     private int secondsMeterInt;
     private int lastSeconds;
-    
-    void Start()
-    {
-
-    }
+    private TMP_Text timerText;
+    void Awake(){timerText = GetComponent<TextMeshProUGUI>();}
 
     // Update is called once per frame
     void Update()
@@ -28,7 +25,7 @@ public class Timer : MonoBehaviour
             secondsMeter += Time.deltaTime;
             secondsMeterInt = Convert.ToInt32(MathF.Round(secondsMeter));
             lastSeconds = timeSeconds - secondsMeterInt;
-            // Debug.Log($"secondsMeter:{secondsMeter}\nsecondsMeterInt:{secondsMeterInt}\nlastSeconds:{lastSeconds}");
+         //   Debug.Log($"secondsMeter:{secondsMeter}\nsecondsMeterInt:{secondsMeterInt}\nlastSeconds:{lastSeconds}");
             timerText.text = SecondsToTime(lastSeconds);
             if (lastSeconds <= 0)
             {
@@ -45,6 +42,7 @@ public class Timer : MonoBehaviour
     {
         timeSeconds = timeInSeconds;
         timerInit = true;
+        secondsMeter = 0;
     }
 
     private string SecondsToTime(int fullSeconds)
