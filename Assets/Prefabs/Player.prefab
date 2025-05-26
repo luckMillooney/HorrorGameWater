@@ -156,7 +156,7 @@ MonoBehaviour:
   maxAirAcceleration: 7.3
   maxClimbAcceleration: 0
   maxSwimAcceleration: 5
-  jumpHeight: 1
+  jumpHeight: 2
   maxAirJumps: 0
   maxGroundAngle: 40
   maxStairsAngle: 50

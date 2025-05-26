@@ -336,7 +336,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -544,43 +544,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740510730047956252, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}
-      propertyPath: buoyancy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740510730047956252, guid: 326a84307246c9c4dbd6bbb5f89c548b,
-        type: 3}
-      propertyPath: maxSnapSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740510730047956252, guid: 326a84307246c9c4dbd6bbb5f89c548b,
-        type: 3}
-      propertyPath: maxGroundAngle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740510730047956252, guid: 326a84307246c9c4dbd6bbb5f89c548b,
-        type: 3}
       propertyPath: playerInputSpace
       value: 
       objectReference: {fileID: 1261128896}
-    - target: {fileID: 2237160478559648820, guid: 326a84307246c9c4dbd6bbb5f89c548b,
-        type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6715733152658573475, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.45
+      value: 108.494
       objectReference: {fileID: 0}
     - target: {fileID: 6715733152658573475, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.38
+      value: 8.48
       objectReference: {fileID: 0}
     - target: {fileID: 6715733152658573475, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45
+      value: 33.87
       objectReference: {fileID: 0}
     - target: {fileID: 6715733152658573475, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}

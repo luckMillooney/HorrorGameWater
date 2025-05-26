@@ -112,8 +112,10 @@ public class MovingPlayer : MonoBehaviour {
 
 		if (Swimming) {
 			desiresClimbing = false;
-		} else {
+		} else if (OnGround) {
 			desiredJump |= Input.GetButtonDown("Jump");
+			desiresClimbing = Input.GetButton("Climb");
+		} else {
 			desiresClimbing = Input.GetButton("Climb");
 		}
 
@@ -131,7 +133,7 @@ public class MovingPlayer : MonoBehaviour {
 
 		AdjustVelocity();
 
-		if (desiredJump) {
+		if (desiredJump && OnGround) {
 			desiredJump = false;
 			Jump(gravity);
 		}
@@ -146,6 +148,11 @@ public class MovingPlayer : MonoBehaviour {
 			velocity += (gravity - contactNormal * (maxClimbAcceleration * 0.9f)) * Time.deltaTime;
 		} else {
 			velocity += gravity * Time.deltaTime;
+		}
+
+		if (!OnGround)
+		{
+			velocity += Physics.gravity * Time.deltaTime;
 		}
 
 		body.velocity = velocity;
@@ -323,6 +330,7 @@ public class MovingPlayer : MonoBehaviour {
 		for (int i = 0; i < collision.contactCount; i++) {
 			Vector3 normal = collision.GetContact(i).normal;
 			float upDot = Vector3.Dot(upAxis, normal);
+			Debug.Log(minDot);
 			if (upDot >= minDot) {
 				groundContactCount++;
 				contactNormal += normal;
