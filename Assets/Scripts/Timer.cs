@@ -33,7 +33,6 @@ public class Timer : MonoBehaviour
 
 
             lastSeconds = timeSeconds - secondsMeterInt;
-            //   Debug.Log($"secondsMeter:{secondsMeter}\nsecondsMeterInt:{secondsMeterInt}\nlastSeconds:{lastSeconds}");
             timerText.text = SecondsToTime(lastSeconds);
             if (lastSeconds <= 0)
             {
@@ -72,6 +71,6 @@ public class Timer : MonoBehaviour
         }
         return $"{seconds}";
     }
-    //IEnumerator Pulse() {
+
 
 }
