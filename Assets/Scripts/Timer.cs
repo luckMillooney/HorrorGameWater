@@ -4,42 +4,54 @@ using UnityEngine;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using System.Threading.Tasks;
 public class Timer : MonoBehaviour
 {
     // Start is called before the first frame update
     //[SerializeField] public int timeInSeconds;
     private int timeSeconds;
-     
+
     private bool timerInit;
     private float secondsMeter;
     private int secondsMeterInt;
     private int lastSeconds;
     private TMP_Text timerText;
-    void Awake(){timerText = GetComponent<TextMeshProUGUI>();}
+    private Animator animator;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        timerText = GetComponent<TextMeshProUGUI>();
+        animator = GetComponent<Animator>();}
+
     void Update()
     {
+
         if (timerInit)
         {
             secondsMeter += Time.deltaTime;
             secondsMeterInt = Convert.ToInt32(MathF.Round(secondsMeter));
+
+
             lastSeconds = timeSeconds - secondsMeterInt;
-         //   Debug.Log($"secondsMeter:{secondsMeter}\nsecondsMeterInt:{secondsMeterInt}\nlastSeconds:{lastSeconds}");
+            //   Debug.Log($"secondsMeter:{secondsMeter}\nsecondsMeterInt:{secondsMeterInt}\nlastSeconds:{lastSeconds}");
             timerText.text = SecondsToTime(lastSeconds);
             if (lastSeconds <= 0)
             {
                 timerText.text = "";
                 timerInit = false;
                 timeSeconds = 0;
+                animator.enabled = false;
             }
 
-            
+
         }
-        
+            
+
     }
     public void StartTimer(int timeInSeconds)
     {
+        animator.enabled = true;
+        animator.Play("Pulse");
         timeSeconds = timeInSeconds;
         timerInit = true;
         secondsMeter = 0;
@@ -60,4 +72,6 @@ public class Timer : MonoBehaviour
         }
         return $"{seconds}";
     }
+    //IEnumerator Pulse() {
+
 }
