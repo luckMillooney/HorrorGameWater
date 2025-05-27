@@ -73,9 +73,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -120,12 +120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Deadline Mac_0 SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -308063941
   material: {fileID: -3895193252445998256}
-  materialHashCode: 0
+  materialHashCode: 606616123
   m_Version: 1.1.0
   m_SourceFontFileGUID: b9fe579aa3579744ab993bd2011abec2
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b9fe579aa3579744ab993bd2011abec2, type: 3}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b9fe579aa3579744ab993bd2011abec2,
+    type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
