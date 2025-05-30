@@ -7,9 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DistortionMat
-  m_Shader: {fileID: -6465566751694194690, guid: 300688175bd7cb84fafd5fd45c942ace,
-    type: 3}
+  m_Name: UnderwaterEffects
+  m_Shader: {fileID: 4800000, guid: 49f56094dc36d404c9900cd243cc3f22, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,26 +23,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
+    - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Distance: 10
-    - _Distortion: 0.01
-    - _DistortionBlendDistance: 0.5
-    - _Distortion_Scale: 5
-    - _World_Water_Level: 5.8
-    m_Colors:
-    - _Speeds: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _UnderwaterTint: {r: 0.08285868, g: 0.1587573, b: 0.3584906, a: 0}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
