@@ -110,14 +110,25 @@ public class MovingPlayer : MonoBehaviour {
 			forwardAxis = ProjectDirectionOnPlane(Vector3.forward, upAxis);
 		}
 
-		if (Swimming) {
+		//if (Swimming) {
+		//	desiresClimbing = false;
+		//} else if (OnGround) {
+		//	desiredJump |= Input.GetButtonDown("Jump");
+		//	desiresClimbing = Input.GetButton("Climb");
+		//} else {
+		//	desiresClimbing = Input.GetButton("Climb");
+		//}
+
+		if (Swimming)
+		{
 			desiresClimbing = false;
-		} else if (OnGround) {
+		}
+		else
+		{
 			desiredJump |= Input.GetButtonDown("Jump");
 			desiresClimbing = Input.GetButton("Climb");
-		} else {
-			desiresClimbing = Input.GetButton("Climb");
 		}
+
 
 		meshRenderer.material = Climbing ? climbingMaterial :
 								  Swimming ? swimmingMaterial : normalMaterial;
@@ -133,7 +144,13 @@ public class MovingPlayer : MonoBehaviour {
 
 		AdjustVelocity();
 
-		if (desiredJump && OnGround) {
+		//if (desiredJump && OnGround) {
+		//	desiredJump = false;
+		//	Jump(gravity);
+		//}
+
+		if (desiredJump)
+		{
 			desiredJump = false;
 			Jump(gravity);
 		}
@@ -150,10 +167,10 @@ public class MovingPlayer : MonoBehaviour {
 			velocity += gravity * Time.deltaTime;
 		}
 
-		if (!OnGround)
-		{
-			velocity += Physics.gravity * Time.deltaTime;
-		}
+		//if (!OnGround)
+		//{
+		//	velocity += Physics.gravity * Time.deltaTime;
+		//}
 
 		body.velocity = velocity;
 		ClearState();
@@ -330,7 +347,6 @@ public class MovingPlayer : MonoBehaviour {
 		for (int i = 0; i < collision.contactCount; i++) {
 			Vector3 normal = collision.GetContact(i).normal;
 			float upDot = Vector3.Dot(upAxis, normal);
-			Debug.Log(minDot);
 			if (upDot >= minDot) {
 				groundContactCount++;
 				contactNormal += normal;

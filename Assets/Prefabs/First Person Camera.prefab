@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2112322696138371524}
   - component: {fileID: 8418205376869655702}
   - component: {fileID: 5802313159964271190}
-  - component: {fileID: 6398303872241317155}
   - component: {fileID: 2459368794373444835}
+  - component: {fileID: 7011657565061577724}
   m_Layer: 0
   m_Name: First Person Camera
   m_TagString: MainCamera
@@ -45,7 +45,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -94,31 +94,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7155280204048014175}
   m_Enabled: 1
---- !u!114 &6398303872241317155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7155280204048014175}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b8ac43c743f4ec59454ccad24d8740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focus: {fileID: 0}
-  distance: -2.5
-  focusRadius: 1
-  focusCentering: 0.75
-  rotationSpeed: 90
-  minVerticalAngle: -30
-  maxVerticalAngle: 60
-  alignDelay: 5
-  alignSmoothRange: 45
-  upAlignmentSpeed: 360
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 3619
 --- !u!114 &2459368794373444835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +108,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
   minVerticalAngle: -60
-  maxVerticalAngle: 60
+  maxVerticalAngle: 80
   rotationSpeed: 90
   mouseSensitivity: 2.35
   upAlignmentSpeed: 360
   lockCursor: 1
+--- !u!114 &7011657565061577724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155280204048014175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0

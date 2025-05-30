@@ -1,27 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6817634676636583628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1da1f5b1f37e9b34da4c29c89838dc59, type: 3}
-  m_Name: Underwater Effects
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  settings:
-    material: {fileID: 2100000, guid: f08f79324709258449eae88a96994eb6, type: 2}
-    renderPassEvent: 400
-    color: {r: 0.012682447, g: 0.044723477, b: 0.047169805, a: 0}
-    FogDensity: 1
-    alpha: 0
-    refraction: 0.1
-    normalmap: {fileID: 0}
-    UV: {x: 1, y: 1, z: 0.2, w: 0.1}
 --- !u!114 &-3771762198615743613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +61,7 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -3771762198615743613}
   - {fileID: 4220465178308313706}
-  - {fileID: -6817634676636583628}
-  m_RendererFeatureMap: 832343964302a8cb6a02f9fbb71a923a34f9b00a62e562a1
+  m_RendererFeatureMap: 832343964302a8cb6a02f9fbb71a923a
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

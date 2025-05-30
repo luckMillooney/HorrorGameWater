@@ -156,7 +156,7 @@ MonoBehaviour:
   maxAirAcceleration: 7.3
   maxClimbAcceleration: 0
   maxSwimAcceleration: 5
-  jumpHeight: 2
+  jumpHeight: 1
   maxAirJumps: 0
   maxGroundAngle: 40
   maxStairsAngle: 50
@@ -166,7 +166,7 @@ MonoBehaviour:
   submergenceOffset: 0.5
   submergenceRange: 1
   buoyancy: 1
-  waterDrag: 1
+  waterDrag: 2
   swimThreshold: 0.5
   probeMask:
     serializedVersion: 2
