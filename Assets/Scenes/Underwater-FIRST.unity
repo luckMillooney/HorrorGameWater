@@ -610,6 +610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740510730047956252, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}
+      propertyPath: _flashlight
+      value: 
+      objectReference: {fileID: 2036342119}
+    - target: {fileID: 1740510730047956252, guid: 326a84307246c9c4dbd6bbb5f89c548b,
+        type: 3}
       propertyPath: playerInputSpace
       value: 
       objectReference: {fileID: 2062034907}
@@ -868,6 +873,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2172001995996263570, guid: adcff715a050e304994858bf94090b2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2459368794373444835, guid: adcff715a050e304994858bf94090b2a,
         type: 3}
       propertyPath: focus
@@ -1122,6 +1132,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &2036342119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2172001995996263570, guid: adcff715a050e304994858bf94090b2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614859884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2062034907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2112322696138371524, guid: adcff715a050e304994858bf94090b2a,

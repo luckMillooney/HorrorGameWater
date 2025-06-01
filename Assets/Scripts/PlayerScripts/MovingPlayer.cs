@@ -83,6 +83,8 @@ public class MovingPlayer : MonoBehaviour {
 
 	private CapsuleCollider _actualCollider;
 
+	[SerializeField] private GameObject _flashlight;
+
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
 		minStairsDotProduct = Mathf.Cos(maxStairsAngle * Mathf.Deg2Rad);
@@ -121,6 +123,9 @@ public class MovingPlayer : MonoBehaviour {
 		//} else {
 		//	desiresClimbing = Input.GetButton("Climb");
 		//}
+
+		FlashlightCheckActivation();
+
 
 		if (Swimming)
 		{
@@ -396,4 +401,12 @@ public class MovingPlayer : MonoBehaviour {
 	float GetMinDot (int layer) {
 		return (stairsMask & (1 << layer)) == 0 ? minGroundDotProduct : minStairsDotProduct;
 	}
+
+	private void FlashlightCheckActivation()
+    {
+		if(Input.GetKeyDown("f"))
+        {
+			_flashlight.active = !_flashlight.active;
+		}
+    }
 }
