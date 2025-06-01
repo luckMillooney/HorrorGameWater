@@ -81,6 +81,8 @@ public class MovingPlayer : MonoBehaviour {
 	MeshRenderer meshRenderer;
 	float sprint;
 
+	private CapsuleCollider _actualCollider;
+
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
 		minStairsDotProduct = Mathf.Cos(maxStairsAngle * Mathf.Deg2Rad);
@@ -89,6 +91,7 @@ public class MovingPlayer : MonoBehaviour {
 
 	void Awake () {
 		body = GetComponent<Rigidbody>();
+		_actualCollider = GetComponent<CapsuleCollider>();
 		body.useGravity = false;
 		meshRenderer = GetComponent<MeshRenderer>();
 		Cursor.lockState = CursorLockMode.Locked;
@@ -122,11 +125,13 @@ public class MovingPlayer : MonoBehaviour {
 		if (Swimming)
 		{
 			desiresClimbing = false;
+			_actualCollider.height = 1;
 		}
 		else
 		{
 			desiredJump |= Input.GetButtonDown("Jump");
 			desiresClimbing = Input.GetButton("Climb");
+			_actualCollider.height = 2;
 		}
 
 

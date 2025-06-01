@@ -613,6 +613,11 @@ PrefabInstance:
       propertyPath: playerInputSpace
       value: 
       objectReference: {fileID: 2062034907}
+    - target: {fileID: 2237160478559648820, guid: 326a84307246c9c4dbd6bbb5f89c548b,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6715733152658573475, guid: 326a84307246c9c4dbd6bbb5f89c548b,
         type: 3}
       propertyPath: m_LocalPosition.x
