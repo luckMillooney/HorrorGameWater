@@ -81,6 +81,10 @@ public class MovingPlayer : MonoBehaviour {
 	MeshRenderer meshRenderer;
 	float sprint;
 
+	private CapsuleCollider _actualCollider;
+
+	[SerializeField] private GameObject _flashlight;
+
 	void OnValidate () {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
 		minStairsDotProduct = Mathf.Cos(maxStairsAngle * Mathf.Deg2Rad);
@@ -89,6 +93,7 @@ public class MovingPlayer : MonoBehaviour {
 
 	void Awake () {
 		body = GetComponent<Rigidbody>();
+		_actualCollider = GetComponent<CapsuleCollider>();
 		body.useGravity = false;
 		meshRenderer = GetComponent<MeshRenderer>();
 		Cursor.lockState = CursorLockMode.Locked;
@@ -119,14 +124,19 @@ public class MovingPlayer : MonoBehaviour {
 		//	desiresClimbing = Input.GetButton("Climb");
 		//}
 
+		FlashlightCheckActivation();
+
+
 		if (Swimming)
 		{
 			desiresClimbing = false;
+			_actualCollider.height = 1;
 		}
 		else
 		{
 			desiredJump |= Input.GetButtonDown("Jump");
 			desiresClimbing = Input.GetButton("Climb");
+			_actualCollider.height = 2;
 		}
 
 
@@ -391,4 +401,12 @@ public class MovingPlayer : MonoBehaviour {
 	float GetMinDot (int layer) {
 		return (stairsMask & (1 << layer)) == 0 ? minGroundDotProduct : minStairsDotProduct;
 	}
+
+	private void FlashlightCheckActivation()
+    {
+		if(Input.GetKeyDown("f"))
+        {
+			_flashlight.active = !_flashlight.active;
+		}
+    }
 }
